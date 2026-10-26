@@ -31,6 +31,24 @@ npm link
 brew install jq   # macOS
 ```
 
+## Один бинарник (macOS)
+
+Можно собрать `jqc` в один самодостаточный исполняемый файл через
+Node SEA (Single Executable Application) — без Node, npm и node_modules:
+
+```bash
+npm run build:binary
+./dist/jqc --version        # jqc 0.1.0
+./dist/jqc '.scripts.build' tsconfig.jsonc
+```
+
+Как это устроено: `esbuild` собирает `src/cli.ts` вместе с
+`jsonc-parser`/`json5` в один CJS-бандл, `node --experimental-sea-config`
+готовит SEA-blob, `postject` вшивает его в копию бинарника Node, и всё это
+подписывается ad-hoc подписью (`codesign`). Итог — `dist/jqc` (~120 МБ,
+внутри весь Node runtime). Для других платформ (Linux/Windows) тот же
+скрипт достаточно запустить на целевой машине.
+
 ## Использование
 
 ### Запросы (любой jq-код)
