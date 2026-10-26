@@ -1,0 +1,31 @@
+{
+  "name": "jqc",
+  "version": "0.1.0",
+  "description": "jq for JSONC/JSON5 configs — real jq queries, edits that keep your comments",
+  "type": "module",
+  "license": "MIT",
+  "bin": {
+    "jqc": "./bin/jqc.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.6"
+  },
+  "scripts": {
+    "dev": "node src/cli.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node --test test/*.test.ts"
+  },
+  "dependencies": {
+    "json5": "^2.2.3",
+    "jsonc-parser": "^3.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.9.2"
+  }
+}

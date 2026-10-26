@@ -1,0 +1,14 @@
+{
+  // TypeScript configuration for the demo project
+  "compilerOptions": {
+    "target": "ES2022",
+    /* Paths below are resolved relative to this file */
+    "module": "NodeNext",
+    "strict": true,
+    "paths": {
+      "@app/*": ["./src/*"] // alias used across the app
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["dist"],
+}
